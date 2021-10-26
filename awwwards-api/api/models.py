@@ -19,3 +19,9 @@ class Profile(models.Model):
     bio = models.TextField(max_length=200)
     projects = models.ForeignKey(Project, on_delete=models.CASCADE)
     email = models.EmailField(max_length=100)
+
+
+class Rating(models.Model):
+    design = models.IntegerField(max_length=2)
+    usability = models.IntegerField(max_length=2)
+    content = models.IntegerField(max_length=2)
