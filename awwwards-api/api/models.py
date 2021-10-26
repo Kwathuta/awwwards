@@ -9,3 +9,6 @@ class Project(models.Model):
     description = models.TextField
     url = models.CharField()
     posted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-posted']
