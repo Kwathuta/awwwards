@@ -12,7 +12,9 @@ class RatingSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'title', 'image', 'description', 'url', 'posted']
+        fields = ['id', 'title', 'image',
+                  'description', 'url', 'posted', 'owner']
+        owner = serializers.ReadOnlyField(source='owner.username')
 
 
 class ProfileSerializer(serializers.ModelSerializer):
