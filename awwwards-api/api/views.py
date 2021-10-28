@@ -1,6 +1,7 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import viewsets
 from api.models import *
 from api.serializers import *
 
@@ -49,3 +50,19 @@ def project_detail(request, pk):
     elif request.method == 'DELETE':
         project.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def post(request):
+    file = request.data['file']
+    image = Profile.objects.create(image=file)
+    return Response(({'message': "Uploaded successfully"}), status=status.HTTP_200_OK)
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+    def post(self, request):
+        file = request.data['file']
+        image = Profile.objects.create(image=file)
+        return Response(({'message': "Uploaded successfully"}), status=status.HTTP_200_OK)
