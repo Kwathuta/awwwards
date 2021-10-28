@@ -3,6 +3,7 @@ from rest_framework import status, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import viewsets, generics
+from rest_framework.reverse import reverse
 from api.models import *
 from api.serializers import *
 from api.permissions import *
@@ -35,11 +36,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
         return Response(({'message': "Uploaded successfully"}), status=status.HTTP_200_OK)
 
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveAPIView):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
