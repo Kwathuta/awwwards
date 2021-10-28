@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from api.models import *
 from api.serializers import *
 
@@ -66,3 +67,12 @@ class ProfileViewSet(viewsets.ModelViewSet):
         file = request.data['file']
         image = Profile.objects.create(image=file)
         return Response(({'message': "Uploaded successfully"}), status=status.HTTP_200_OK)
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
