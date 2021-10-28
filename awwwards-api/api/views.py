@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import viewsets, generics
 from api.models import *
 from api.serializers import *
+from api.permissions import *
 
 # Create your views here.
 
@@ -12,7 +13,8 @@ from api.serializers import *
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
