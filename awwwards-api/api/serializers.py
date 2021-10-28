@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from api.models import *
 
@@ -18,3 +19,12 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ['id', 'avatar', 'bio', 'projects', 'email']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    projects = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=Project.objects.all())
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'projects']

@@ -23,6 +23,8 @@ class Project(models.Model):
     description = models.TextField(max_length=300)
     url = models.CharField(max_length=300)
     posted = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(
+        'auth.User', related_name='projects', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-posted']
