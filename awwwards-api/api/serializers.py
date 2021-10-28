@@ -12,15 +12,16 @@ class RatingSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
+        owner = serializers.ReadOnlyField(source='owner.username')
         fields = ['url', 'id', 'title', 'image',
                   'description', 'url', 'posted', 'owner']
-        owner = serializers.ReadOnlyField(source='owner.username')
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Profile
-        fields = ['url', 'id', 'avatar', 'bio', 'projects', 'email']
+        user = serializers.ReadOnlyField(source='user.username')
+        fields = ['url', 'id', 'avatar', 'bio', 'projects', 'email', 'user']
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

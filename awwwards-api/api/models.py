@@ -19,7 +19,7 @@ class Rating(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to=projectFileName, null=True)
+    image = models.ImageField(upload_to=projectFileName)
     description = models.TextField(max_length=300)
     url = models.CharField(max_length=300)
     posted = models.DateTimeField(auto_now_add=True)
@@ -34,6 +34,8 @@ class Project(models.Model):
 
 
 class Profile(models.Model):
+    user = models.OneToOneField(
+        'auth.User', related_name='profile', on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to=profileFileName)
     bio = models.TextField(max_length=200)
     projects = models.ForeignKey(Project, on_delete=models.CASCADE)

@@ -29,6 +29,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
     def post(self, request):
         file = request.data['file']
