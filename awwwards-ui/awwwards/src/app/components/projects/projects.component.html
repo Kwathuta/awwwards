@@ -1,1 +1,6 @@
-<p>projects works!</p>
+<div class="col-md-6 mx-auto" *ngFor="let project of projects">
+  <p>{{ project.title }}</p>
+  <img src="{{ project.image }}" class="img-fluid" alt="" />
+  <p>{{ project.description }}</p>
+  <p>{{ project.url }}</p>
+</div>
