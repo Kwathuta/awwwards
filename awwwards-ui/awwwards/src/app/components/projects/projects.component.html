@@ -1,6 +1,8 @@
 <div class="col-md-6 mx-auto" *ngFor="let project of projects">
   <p>{{ project.title }}</p>
-  <img src="{{ project.image }}" class="img-fluid" alt="" />
+  <div class="thumbnail">
+    <img src="{{ project.image }}" class="img-fluid img-thumbnail" alt="" />
+  </div>
   <p>{{ project.description }}</p>
   <a href="{{ project.url }}" target="_blank"><p>Go to project</p></a>
 </div>
