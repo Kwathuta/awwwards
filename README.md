@@ -6,7 +6,7 @@
 
 ## Description
 
-Awwwards is an attempt to clone the Awwwards platform using a Django backend and an Angular Frontend. I plan on continuing with the project to make it fully functional. I am open to contributions. Reach out via the channels below. Cheers! Heres a screenshot of the website as it is now
+Awwwards is an attempt to clone the Awwwards platform using a Django backend and an Angular Frontend. I plan on continuing with the project to make it fully functional. I am open to contributions. Reach out via the channels below. Here's a screenshot of the website as it is now
 
 ![Landing page screenshot](awwwards-ui/awwwards/src/assets/img/Screenshot-from-2021-10-31-19-43-18.png "awwwards")
 
