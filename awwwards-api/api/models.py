@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -19,7 +19,7 @@ class Rating(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to=projectFileName)
+    image = CloudinaryField(blank=True)
     description = models.TextField(max_length=300)
     url = models.CharField(max_length=300)
     posted = models.DateTimeField(auto_now_add=True)
@@ -36,7 +36,7 @@ class Project(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(
         'auth.User', related_name='profile', on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to=profileFileName)
+    avatar = CloudinaryField(blank=True)
     bio = models.TextField(max_length=200)
     projects = models.ForeignKey(Project, on_delete=models.CASCADE)
     email = models.EmailField(max_length=100)

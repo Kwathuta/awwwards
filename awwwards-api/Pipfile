@@ -10,6 +10,8 @@ psycopg2 = "*"
 pillow = "*"
 django-cors-headers = "*"
 django-rest-registration = "*"
+cloudinary = "*"
+django-heroku = "*"
 
 [dev-packages]
 autopep8 = "*"
