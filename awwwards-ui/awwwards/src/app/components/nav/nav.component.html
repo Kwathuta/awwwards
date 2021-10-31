@@ -18,7 +18,14 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="login/">Logout</a>
+          <a class="nav-link"
+            ><button
+              style="background: transparent; border: none; color: #f5f5f5"
+              (click)="logout()"
+            >
+              Logout
+            </button></a
+          >
         </li>
       </ul>
       <form class="d-flex">

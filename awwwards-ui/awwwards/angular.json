@@ -101,6 +101,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/awwwards",
+            "netlifyToken": "hZ9Z8CKx5JGLwwMgy1v4zCDBOypdKvQw5k3fBdHujkI",
+            "siteId": "bc30d407-6c33-4979-ae8c-3d4690d6f8bc"
+          }
         }
       }
     }

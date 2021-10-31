@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   onSubmit() {
     const { username, password, password_confirm } = this.form;
@@ -30,6 +31,7 @@ export class RegisterComponent implements OnInit {
       this.errorMessage = err.error.message;
       this.isSignUpFailed = true;
     })
+    this.route.navigate(['login'])
   }
 
   ngOnInit(): void {

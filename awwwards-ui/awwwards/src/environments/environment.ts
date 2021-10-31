@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   BASE_URL: 'http://127.0.0.1:8000/api/',
   AUTH_URL: 'http://127.0.0.1:8000/auth/accounts/',
+  // BASE_URL: 'https://awwwards-api.herokuapp.com/api/',
+  // AUTH_URL: 'https://awwwards-api.herokuapp.com/auth/accounts/',
 };
 
 /*
