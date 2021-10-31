@@ -1,8 +1,15 @@
-<div class="col-md-6 mx-auto" *ngFor="let project of projects">
-  <p>{{ project.title }}</p>
-  <div class="thumbnail">
-    <img src="{{ project.image }}" class="img-fluid img-thumbnail" alt="" />
+<h1 class="text-center">awwwards.</h1>
+<div class="row w-80 mx-auto">
+  <div class="col col-md-4 my-3" *ngFor="let project of projects">
+    <div class="card">
+      <img src="{{ project.image }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">
+          {{ project.description }}
+        </p>
+        <a href="#" class="btn btn-primary">Go to Site</a>
+      </div>
+    </div>
   </div>
-  <p>{{ project.description }}</p>
-  <a href="{{ project.url }}" target="_blank"><p>Go to project</p></a>
 </div>
