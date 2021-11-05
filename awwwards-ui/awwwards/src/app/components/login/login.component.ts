@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     const { login, password } = this.form;
     console.log(this.form)
     this.authService.login(login, password)
+    this.isSuccessful = true;
   }
 
   ngOnInit(): void {

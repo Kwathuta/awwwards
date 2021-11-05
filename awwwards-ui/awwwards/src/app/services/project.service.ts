@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProject } from '../interfaces/project';
+import { Router } from '@angular/router';
+
 
 token: sessionStorage.getItem("token")
 
@@ -15,7 +17,7 @@ const httpOptions = {
 })
 export class ProjectService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: Router) {
     console.log('Starting service')
     console.log(sessionStorage.getItem("token"))
   }
@@ -30,6 +32,7 @@ export class ProjectService {
 
   postProject(project: any) {
     return this.http.post(`${environment.BASE_URL}projects/`, project).subscribe(response => {
+      this.route.navigate(['projects'])
       return response
     })
   }
