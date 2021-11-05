@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IProject } from '../interfaces/project';
 
 token: sessionStorage.getItem("token")
 
@@ -27,9 +28,9 @@ export class ProjectService {
     return this.http.get(`${environment.BASE_URL}projects/${projectId}`)
   }
 
-  postProject(title: string, image: HTMLImageElement | File, description: string, url: string): Observable<any> {
-    return this.http.post(`${environment.BASE_URL}projects/`, {
-      title, image, description, url
-    }, httpOptions);
+  postProject(project: any) {
+    return this.http.post(`${environment.BASE_URL}projects/`, project).subscribe(response => {
+      return response
+    })
   }
 }

@@ -3,24 +3,17 @@
     <h1>
       <p>Add your site to Awwwards for all to see!</p>
     </h1>
-    <form
-      *ngIf="!isSuccessful"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
+    <form enctype="multipart/form-data">
       <div class="form-group">
         <label for="title">Title</label>
         <input
           type="text"
           class="form-control"
           name="title"
-          [(ngModel)]="form.title"
+          [(ngModel)]="title"
           required
           minlength="3"
           maxlength="20"
-          #title="ngModel"
         />
       </div>
       <div class="form-group">
@@ -30,8 +23,7 @@
           accept="image/*"
           class="form-control"
           name="image"
-          [(ngModel)]="form.image"
-          #image="ngModel"
+          (change)="onImageChange($event)"
         />
       </div>
       <div class="form-group">
@@ -40,10 +32,9 @@
           type="text"
           class="form-control"
           name="description"
-          [(ngModel)]="form.description"
+          [(ngModel)]="description"
           required
           minlength="6"
-          #description="ngModel"
         />
       </div>
       <div class="form-group">
@@ -52,14 +43,19 @@
           type="text"
           class="form-control"
           name="url"
-          [(ngModel)]="form.url"
+          [(ngModel)]="url"
           required
           minlength="6"
-          #url="ngModel"
         />
       </div>
       <div class="form-group my-5">
-        <button class="btn btn-primary btn-block">Submit Site</button>
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          (click)="postProject()"
+        >
+          Submit Site
+        </button>
       </div>
     </form>
 
