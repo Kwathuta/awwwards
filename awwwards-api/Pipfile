@@ -6,12 +6,13 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
-psycopg2 = "*"
 pillow = "*"
 django-cors-headers = "*"
 django-rest-registration = "*"
 cloudinary = "*"
 django-heroku = "*"
+psycopg2-binary = "*"
+drf-yasg = "*"
 
 [dev-packages]
 autopep8 = "*"

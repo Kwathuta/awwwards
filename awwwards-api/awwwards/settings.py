@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_yasg',
     'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,9 +85,9 @@ WSGI_APPLICATION = 'awwwards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'awwwards',
-        'USER': 'moringa',
+        'USER': 'devkev',
         'PASSWORD': 'aljokela7247',
     }
 }
