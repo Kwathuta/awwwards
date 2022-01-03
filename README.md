@@ -2,7 +2,7 @@
 
 #### Awwwards is a clone of the famous Awwwards platform that ranks websites on different merits
 
-#### By **Kelvin Gitahi, October 2021**
+#### By **Kelvin Gitahi, January 2022**
 
 ## Description
 
@@ -42,4 +42,4 @@ I'd love to chat! Ping me on [Twitter](https://twitter.com/kevocb) should any is
 ### License
 
 _MIT Licence_
-Copyright &copy; 2021 **Kelvin Gitahi**
+Copyright &copy; 2022 **Kelvin Gitahi**
